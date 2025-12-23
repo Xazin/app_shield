@@ -1,6 +1,6 @@
-# dash_shield_example
+# app_shield_example
 
-Demonstrates how to use the dash_shield plugin.
+Demonstrates how to use the app_shield plugin.
 
 ## Getting Started
 

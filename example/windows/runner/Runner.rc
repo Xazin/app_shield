@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "dev.dash_shield" "\0"
-            VALUE "FileDescription", "dash_shield_example" "\0"
+            VALUE "CompanyName", "dev.app_shield" "\0"
+            VALUE "FileDescription", "app_shield_example" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "dash_shield_example" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2024 dev.dash_shield. All rights reserved." "\0"
-            VALUE "OriginalFilename", "dash_shield_example.exe" "\0"
-            VALUE "ProductName", "dash_shield_example" "\0"
+            VALUE "InternalName", "app_shield_example" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2024 dev.app_shield. All rights reserved." "\0"
+            VALUE "OriginalFilename", "app_shield_example.exe" "\0"
+            VALUE "ProductName", "app_shield_example" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

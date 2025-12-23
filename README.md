@@ -1,11 +1,12 @@
-# 🔥 Dash Shield
+# App Shield
+
+This is a fork of Dash Shield that has been updated to support Android 16 KB requirement.
+
+## Dash Shield
 
 ![Dash Shield](https://img.shields.io/badge/security-robust-brightgreen.svg) ![Flutter](https://img.shields.io/badge/flutter-v3.24.3-blue.svg)
 
-![Dash Shield Logo](https://raw.githubusercontent.com/Ahmad-Ayman/flutter_dash_shield_plugin/refs/heads/main/media/dash_shield.png)
-
-
-
+![Dash Shield Logo](https://raw.githubusercontent.com/Ahmad-Ayman/flutter_app_shield_plugin/refs/heads/main/media/app_shield.png)
 
 **Dash Shield** is a comprehensive Flutter plugin built to enhance app security and streamline
 development processes. It offers essential tools for protecting sensitive data, including screenshot
@@ -60,11 +61,11 @@ To use this plugin, make sure your project meets the following minimum SDK requi
 
 ## 🚀 Installation
 
-Add `dash_shield` to your `pubspec.yaml`:
+Add `app_shield` to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  dash_shield: ^0.0.1+4
+  app_shield: ^0.0.1+4
 ```
 
 Then, run:
@@ -84,18 +85,18 @@ You can prevent screenshots and screen recording in two ways:
 To prevent screenshots and recording across the entire app, use the following:
 
 ```dart
-import 'package:dash_shield/dash_shield.dart';
+import 'package:app_shield/app_shield.dart';
 
-await DashShield.preventScreenshotsGlobally();
+await AppShield.preventScreenshotsGlobally();
 ```
 
 This will apply a global security setting, ensuring no screen in the app can be captured or
 recorded, and for re-allowing this programmatically use the following :
 
 ```dart
-import 'package:dash_shield/dash_shield.dart';
+import 'package:app_shield/app_shield.dart';
 
-await DashShield.allowScreenshotsGlobally();
+await AppShield.allowScreenshotsGlobally();
 ```
 
 > **Note**: The previous 2 Methods works well with Android and IOS.
@@ -119,20 +120,20 @@ class _Step2State extends State<Step2> {
   void initState() {
     super.initState();
     /// Prevent Screenshot for this screen.
-    DashShield.preventScreenshotsAndRecordingForThisScreen();
+    AppShield.preventScreenshotsAndRecordingForThisScreen();
   }
 
   @override
   void dispose() {
     /// Allow screenshots when leaving this screen
-    DashShield.allowScreenshotsAndRecordingForThisScreen(); 
+    AppShield.allowScreenshotsAndRecordingForThisScreen(); 
     super.dispose();
   }
 
   @override
   void deactivate() {
     /// Allow screenshots when leaving this screen
-    DashShield.allowScreenshotsAndRecordingForThisScreen(); 
+    AppShield.allowScreenshotsAndRecordingForThisScreen(); 
     super.deactivate();
   }
 
@@ -151,10 +152,10 @@ class _Step2State extends State<Step2> {
 
 ```
 
-In this example, calling DashShield.preventScreenshotsAndRecordingForThisScreen() inside the build method of a
+In this example, calling AppShield.preventScreenshotsAndRecordingForThisScreen() inside the build method of a
 specific screen (if Stateless) and inside initState() method (if Stateful), this will restrict screenshots and recordings only for that screen. 
 This targeted restriction allows you to control the security of individual screens without affecting the rest of
-the app. and don't forget to call DashShield.allowScreenshotsAndRecordingForThisScreen(); when leaving the screen to allow 
+the app. and don't forget to call AppShield.allowScreenshotsAndRecordingForThisScreen(); when leaving the screen to allow 
 Screenshots in other screens.
 
 > **Tip**: Place the `preventScreenshotsAndRecordingForThisScreen()` call at the top of the `build` (if Stateless) and inside `initState()` method (if Stateful)
@@ -172,13 +173,13 @@ the `Dio` client for now, other clients will be supported soon.
 To apply SSL pinning:
 
 ```dart
-import 'package:dash_shield/dash_shield.dart';
+import 'package:app_shield/app_shield.dart';
 
 List<String> certificatePaths = [
   'assets/certificates/my_cert.pem',
   'assets/certificates/my_cert_2.crt'
 ];
-await DashShield.applySSLPinning(certificatePaths, dioClient);
+await AppShield.applySSLPinning(certificatePaths, dioClient);
 ```
 
 - **certificatePaths**: A list of paths to `.pem` or `.crt` certificate files located in your
@@ -199,7 +200,7 @@ security needs.
 To set up integrity checks, create a `SecurityConfig` instance with the necessary parameters:
 
 ```dart
-import 'package:dash_shield/dash_shield.dart';
+import 'package:app_shield/app_shield.dart';
 
 final securityConfig = SecurityConfig(
   androidSigningSHA256Hashes: ['sha256hash1', 'sha256hash2'],
@@ -224,7 +225,7 @@ final securityConfig = SecurityConfig(
 After configuring, initialize the security checks with the following:
 
 ```dart
-await DashShield.initSecurity(config:securityConfig);
+await AppShield.initSecurity(config:securityConfig);
 ```
 
 This will activate the specified integrity checks to safeguard your app.
@@ -263,7 +264,7 @@ with `kDebugMode`, making it easy to manage debug output in production builds.
 To access the print management tool, run the following command:
 
 ```bash
-dart run dash_shield:main
+dart run app_shield:main
 ```
 
 You’ll see a command-line menu with the following options:
@@ -276,24 +277,24 @@ You’ll see a command-line menu with the following options:
   with `kDebugMode`, making them visible only in debug mode. This is a quick way to retain useful
   debug information without exposing it in production.
 
-![example](https://raw.githubusercontent.com/Ahmad-Ayman/flutter_dash_shield_plugin/refs/heads/main/media/dash_plugin_prints.gif)
+![example](https://raw.githubusercontent.com/Ahmad-Ayman/flutter_app_shield_plugin/refs/heads/main/media/app_plugin_prints.gif)
 
 > **Note**: Using these options helps ensure that sensitive or unnecessary logs are managed
 > efficiently in production-ready code.
 
-### 5. **DashShieldOverlay**
+### 5. **AppShieldOverlay**
 
-The `DashShieldOverlay` widget is designed to enhance the security of Flutter applications by covering the screen with a customizable overlay when the app goes into the background. This helps prevent sensitive information from being visible when switching between apps or viewing recent apps.
+The `AppShieldOverlay` widget is designed to enhance the security of Flutter applications by covering the screen with a customizable overlay when the app goes into the background. This helps prevent sensitive information from being visible when switching between apps or viewing recent apps.
 
 All you need to do, is to put it in the builder method in MaterialApp Widget, or Wrap any screen you want to implement this feature on it with this widget.
 
 ```dart
-import 'package:dash_shield/dash_shield.dart';
+import 'package:app_shield/app_shield.dart';
 
 return MaterialApp(
      ...
       builder: (context, child) {
-        return DashShieldOverlay(
+        return AppShieldOverlay(
             overlayWidget: Container(
               color: Colors.teal,
               child: const Center(

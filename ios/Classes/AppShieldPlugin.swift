@@ -2,10 +2,10 @@ import Flutter
 import UIKit
 
 
-public class DashShieldPlugin: NSObject, FlutterPlugin {
+public class AppShieldPlugin: NSObject, FlutterPlugin {
   public static func register(with registrar: FlutterPluginRegistrar) {
-    let channel = FlutterMethodChannel(name: "dash_shield", binaryMessenger: registrar.messenger())
-    let instance = DashShieldPlugin()
+    let channel = FlutterMethodChannel(name: "app_shield", binaryMessenger: registrar.messenger())
+    let instance = AppShieldPlugin()
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
 

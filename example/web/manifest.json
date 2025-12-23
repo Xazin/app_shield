@@ -1,11 +1,11 @@
 {
-    "name": "dash_shield_example",
-    "short_name": "dash_shield_example",
+    "name": "app_shield_example",
+    "short_name": "app_shield_example",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "Demonstrates how to use the dash_shield plugin.",
+    "description": "Demonstrates how to use the app_shield plugin.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

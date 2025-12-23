@@ -1,11 +1,11 @@
-import 'package:dash_shield/dash_shield_method_channel.dart';
-import 'package:dash_shield/dash_shield_platform_interface.dart';
+import 'package:app_shield/app_shield_method_channel.dart';
+import 'package:app_shield/app_shield_platform_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
-class MockDashShieldPlatform
+class MockAppShieldPlatform
     with MockPlatformInterfaceMixin
-    implements DashShieldPlatform {
+    implements AppShieldPlatform {
   @override
   Future<void> preventScreenshotsAndRecording() {
     // TODO: implement preventScreenshotsAndRecording
@@ -32,9 +32,9 @@ class MockDashShieldPlatform
 }
 
 void main() {
-  final DashShieldPlatform initialPlatform = DashShieldPlatform.instance;
+  final AppShieldPlatform initialPlatform = AppShieldPlatform.instance;
 
-  test('$MethodChannelDashShield is the default instance', () {
-    expect(initialPlatform, isInstanceOf<MethodChannelDashShield>());
+  test('$MethodChannelAppShield is the default instance', () {
+    expect(initialPlatform, isInstanceOf<MethodChannelAppShield>());
   });
 }

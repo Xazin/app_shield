@@ -1,24 +1,24 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
-import 'dash_shield_platform_interface.dart';
+import 'app_shield_platform_interface.dart';
 
-/// An implementation of [DashShieldPlatform] that uses method channels to
+/// An implementation of [AppShieldPlatform] that uses method channels to
 /// communicate with native platform code for security features.
 ///
-/// [MethodChannelDashShield] provides methods for preventing screenshots and
+/// [MethodChannelAppShield] provides methods for preventing screenshots and
 /// screen recording, interacting with platform-specific implementations through
 /// method channels.
 ///
 /// Example usage:
 /// ```dart
-/// MethodChannelDashShield().preventScreenshotsGlobally();
-/// MethodChannelDashShield().preventScreenshotsAndRecording();
+/// MethodChannelAppShield().preventScreenshotsGlobally();
+/// MethodChannelAppShield().preventScreenshotsAndRecording();
 /// ```
-class MethodChannelDashShield extends DashShieldPlatform {
+class MethodChannelAppShield extends AppShieldPlatform {
   /// The method channel used to interact with the native platform.
   @visibleForTesting
-  final methodChannel = const MethodChannel('dash_shield');
+  final methodChannel = const MethodChannel('app_shield');
 
   /// Prevents screenshots globally across the app using native platform methods.
   ///

@@ -4,10 +4,10 @@ project(runner LANGUAGES CXX)
 
 # The name of the executable created for the application. Change this to change
 # the on-disk name of your application.
-set(BINARY_NAME "dash_shield_example")
+set(BINARY_NAME "app_shield_example")
 # The unique GTK application identifier for this application. See:
 # https://wiki.gnome.org/HowDoI/ChooseApplicationID
-set(APPLICATION_ID "dev.dash_shield.dash_shield")
+set(APPLICATION_ID "dev.app_shield.app_shield")
 
 # Explicitly opt in to modern CMake behaviors to avoid warnings with recent
 # versions of CMake.
@@ -87,7 +87,7 @@ set_target_properties(${BINARY_NAME}
 )
 
 # Enable the test target.
-set(include_dash_shield_tests TRUE)
+set(include_app_shield_tests TRUE)
 
 # Generated plugin build rules, which manage building the plugins and adding
 # them to the application.

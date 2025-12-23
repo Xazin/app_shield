@@ -1,21 +1,21 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class DashShieldOverlay extends StatefulWidget {
+class AppShieldOverlay extends StatefulWidget {
   final Widget child;
   final Widget overlayWidget;
 
-  const DashShieldOverlay({
+  const AppShieldOverlay({
     super.key,
     required this.child,
     required this.overlayWidget,
   });
 
   @override
-  _SecurityOverlayState createState() => _SecurityOverlayState();
+  SecurityOverlayState createState() => SecurityOverlayState();
 }
 
-class _SecurityOverlayState extends State<DashShieldOverlay>
+class SecurityOverlayState extends State<AppShieldOverlay>
     with WidgetsBindingObserver {
   bool _isInBackground = false;
 

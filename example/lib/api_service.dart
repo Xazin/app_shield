@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:dash_shield/dash_shield.dart';
+import 'package:app_shield/app_shield.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 
@@ -17,7 +17,7 @@ class ApiService {
       );
       dio.options = options;
       Future.wait([
-        DashShield.applySSLPinning(['assets/my_cert.crt'], dio)
+        AppShield.applySSLPinning(['assets/my_cert.crt'], dio)
       ]);
 
       _instance = ApiService();

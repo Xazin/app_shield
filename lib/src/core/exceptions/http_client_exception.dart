@@ -1,8 +1,8 @@
-import 'dash_shield_exception.dart';
+import 'app_shield_exception.dart';
 
 /// A specific exception type for handling HTTP client errors in the Dash Shield plugin.
 ///
-/// This [HttpClientException] extends [DashShieldException] and is used to
+/// This [HttpClientException] extends [AppShieldException] and is used to
 /// capture errors specifically related to HTTP client operations within
 /// Dash Shield.
 ///
@@ -10,9 +10,9 @@ import 'dash_shield_exception.dart';
 /// ```dart
 /// throw HttpClientException('Failed to fetch data from server.');
 /// ```
-class HttpClientException extends DashShieldException {
+class HttpClientException extends AppShieldException {
   /// Creates an [HttpClientException] with the given [message] and an optional
-  /// [stackTrace] inherited from [DashShieldException].
+  /// [stackTrace] inherited from [AppShieldException].
   ///
   /// The [message] provides details about the HTTP client error.
   HttpClientException(super.message, [super.stackTrace]);

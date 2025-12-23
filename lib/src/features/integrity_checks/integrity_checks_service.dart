@@ -1,6 +1,6 @@
 import 'package:freerasp/freerasp.dart';
 
-import '../../core/exceptions/dash_shield_exception.dart';
+import '../../core/exceptions/app_shield_exception.dart';
 import '../../core/utils/enums.dart';
 import 'security_config.dart';
 
@@ -22,7 +22,7 @@ class IntegrityChecksService {
   /// details from [config], attaches threat listeners, and starts the integrity
   /// monitoring.
   ///
-  /// Throws a [DashShieldException] if the integrity check fails to start.
+  /// Throws a [AppShieldException] if the integrity check fails to start.
   static Future<void> startIntegrityChecks({
     required SecurityConfig config,
   }) async {
@@ -53,7 +53,6 @@ class IntegrityChecksService {
             : null,
         watcherMail: config.watcherEmail,
         isProd: config.isProduction,
-
       );
 
       // Set up threat detection callbacks
@@ -63,7 +62,7 @@ class IntegrityChecksService {
       Talsec.instance.attachListener(callback);
       await Talsec.instance.start(talsecConfig);
     } catch (e) {
-      throw DashShieldException(
+      throw AppShieldException(
         'IntegrityChecksService Error: Failed to start integrity checks: ${e.toString()}',
       );
     }
@@ -103,9 +102,8 @@ class IntegrityChecksService {
           SecOnControlsToApply.devMode, 'Developer mode'),
       onUnofficialStore: () => _handleCheck(config, enabledChecks,
           SecOnControlsToApply.unofficialStore, 'Unofficial store'),
-      onADBEnabled: ()=> _handleCheck(config, enabledChecks,
+      onADBEnabled: () => _handleCheck(config, enabledChecks,
           SecOnControlsToApply.onADBEnabled, 'USB debugging enabled'),
-
     );
   }
 
@@ -115,7 +113,7 @@ class IntegrityChecksService {
   /// [enabledChecks] specifies which checks are enabled, and [issue] is a
   /// description of the detected threat.
   ///
-  /// Throws a [DashShieldException] if there is an error executing the action.
+  /// Throws a [AppShieldException] if there is an error executing the action.
   static void _handleCheck(
       SecurityConfig config,
       List<SecOnControlsToApply> enabledChecks,
@@ -129,7 +127,7 @@ class IntegrityChecksService {
         action(issue); // Execute the action
       }
     } catch (e) {
-      throw DashShieldException(
+      throw AppShieldException(
         'IntegrityChecksService Error: Failed to execute action for check $check: ${e.toString()}',
       );
     }

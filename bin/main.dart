@@ -1,4 +1,4 @@
-import 'package:dash_shield/src/features/print_removal/print_modification_service.dart';
+import 'package:app_shield/src/features/print_removal/print_modification_service.dart';
 import 'package:interact/interact.dart';
 
 /// The main entry point for the Dash Shield console application.

@@ -1,10 +1,10 @@
 import 'dart:io';
 
-import 'package:dash_shield/src/features/integrity_checks/integrity_checks_service.dart';
-import 'package:dash_shield/src/features/integrity_checks/security_config.dart';
+import 'package:app_shield/src/features/integrity_checks/integrity_checks_service.dart';
+import 'package:app_shield/src/features/integrity_checks/security_config.dart';
 import 'package:screen_protector/screen_protector.dart';
 
-import 'dash_shield_platform_interface.dart';
+import 'app_shield_platform_interface.dart';
 import 'src/core/exceptions/configuration_exception.dart';
 import 'src/features/ssl_pinning/ssl_security_service.dart';
 
@@ -16,17 +16,17 @@ export 'src/features/security_screen_overlay/security_screen_overlay.dart';
 /// methods for screenshot prevention, screen recording prevention, SSL pinning,
 /// and app integrity checks.
 ///
-/// [DashShield] simplifies the application of security features for Flutter
+/// [AppShield] simplifies the application of security features for Flutter
 /// applications, allowing for easy setup and configuration of security best
 /// practices.
 ///
 /// Example usage:
 /// ```dart
-/// DashShield.preventScreenshotsGlobally();
-/// DashShield.applySSLPinning(['assets/certs/my_cert.pem'], dioClient);
-/// DashShield.initSecurity(config: securityConfig);
+/// AppShield.preventScreenshotsGlobally();
+/// AppShield.applySSLPinning(['assets/certs/my_cert.pem'], dioClient);
+/// AppShield.initSecurity(config: securityConfig);
 /// ```
-class DashShield {
+class AppShield {
   /// Prevents screenshots globally across the app.
   ///
   /// This method uses platform-specific implementations to block screenshots
@@ -34,7 +34,7 @@ class DashShield {
   /// screenshots on both Android and iOS devices. Not supported on other platforms.
   static Future<void> preventScreenshotsGlobally() async {
     if (Platform.isAndroid) {
-      return DashShieldPlatform.instance.preventScreenshotsGlobally();
+      return AppShieldPlatform.instance.preventScreenshotsGlobally();
     } else if (Platform.isIOS) {
       return await ScreenProtector.preventScreenshotOn();
     } else {
@@ -49,7 +49,7 @@ class DashShield {
   /// and iOS devices. Not supported on other platforms.
   static Future<void> allowScreenshotsGlobally() async {
     if (Platform.isAndroid) {
-      return DashShieldPlatform.instance.allowScreenshotsGlobally();
+      return AppShieldPlatform.instance.allowScreenshotsGlobally();
     } else if (Platform.isIOS) {
       return await ScreenProtector.preventScreenshotOff();
     } else {
@@ -64,7 +64,7 @@ class DashShield {
   /// This method is currently only supported on Android.
   static Future<void> preventScreenshotsAndRecordingForThisScreen() {
     if (Platform.isAndroid) {
-      return DashShieldPlatform.instance.preventScreenshotsAndRecording();
+      return AppShieldPlatform.instance.preventScreenshotsAndRecording();
     } else {
       throw ConfigurationException('Platform Not Supported');
     }
@@ -77,7 +77,7 @@ class DashShield {
   /// This method is currently only supported on Android.
   static Future<void> allowScreenshotsAndRecordingForThisScreen() {
     if (Platform.isAndroid) {
-      return DashShieldPlatform.instance.allowScreenshots();
+      return AppShieldPlatform.instance.allowScreenshots();
     } else {
       throw ConfigurationException('Platform Not Supported');
     }
@@ -105,7 +105,7 @@ class DashShield {
   ///
   /// Example:
   /// ```dart
-  /// DashShield.initSecurity(config: mySecurityConfig);
+  /// AppShield.initSecurity(config: mySecurityConfig);
   /// ```
   static Future<void> initSecurity({required SecurityConfig config}) async {
     await IntegrityChecksService.startIntegrityChecks(config: config);

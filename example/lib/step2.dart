@@ -1,4 +1,4 @@
-import 'package:dash_shield/dash_shield.dart';
+import 'package:app_shield/app_shield.dart';
 import 'package:flutter/material.dart';
 
 class Step2 extends StatefulWidget {
@@ -11,20 +11,20 @@ class Step2 extends StatefulWidget {
 class _Step2State extends State<Step2> {
   @override
   void initState() {
-    DashShield.preventScreenshotsAndRecordingForThisScreen();
+    AppShield.preventScreenshotsAndRecordingForThisScreen();
     super.initState();
   }
 
   @override
   void dispose() {
-    DashShield
+    AppShield
         .allowScreenshotsAndRecordingForThisScreen(); // Allow screenshots when leaving this screen
     super.dispose();
   }
 
   @override
   void deactivate() {
-    DashShield
+    AppShield
         .allowScreenshotsAndRecordingForThisScreen(); // Allow screenshots when leaving this screen
     super.deactivate();
   }

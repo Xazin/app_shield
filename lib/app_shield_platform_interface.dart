@@ -1,34 +1,34 @@
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
-import 'dash_shield_method_channel.dart';
+import 'app_shield_method_channel.dart';
 
 /// The platform interface for the Dash Shield plugin, defining methods for
 /// preventing screenshots and screen recording across platforms.
 ///
-/// [DashShieldPlatform] acts as an interface between the Flutter plugin and
-/// platform-specific implementations, defaulting to [MethodChannelDashShield].
+/// [AppShieldPlatform] acts as an interface between the Flutter plugin and
+/// platform-specific implementations, defaulting to [MethodChannelAppShield].
 ///
 /// Example usage:
 /// ```dart
-/// DashShieldPlatform.instance.preventScreenshotsGlobally();
-/// DashShieldPlatform.instance.preventScreenshotsAndRecording();
+/// AppShieldPlatform.instance.preventScreenshotsGlobally();
+/// AppShieldPlatform.instance.preventScreenshotsAndRecording();
 /// ```
-abstract class DashShieldPlatform extends PlatformInterface {
-  /// Constructs a [DashShieldPlatform] instance with a verification token.
-  DashShieldPlatform() : super(token: _token);
+abstract class AppShieldPlatform extends PlatformInterface {
+  /// Constructs a [AppShieldPlatform] instance with a verification token.
+  AppShieldPlatform() : super(token: _token);
 
   static final Object _token = Object();
 
-  /// The default instance of [DashShieldPlatform], which uses
-  /// [MethodChannelDashShield] by default.
-  static DashShieldPlatform _instance = MethodChannelDashShield();
+  /// The default instance of [AppShieldPlatform], which uses
+  /// [MethodChannelAppShield] by default.
+  static AppShieldPlatform _instance = MethodChannelAppShield();
 
-  /// Gets the current instance of [DashShieldPlatform].
-  static DashShieldPlatform get instance => _instance;
+  /// Gets the current instance of [AppShieldPlatform].
+  static AppShieldPlatform get instance => _instance;
 
-  /// Sets a new instance of [DashShieldPlatform], allowing platform-specific
+  /// Sets a new instance of [AppShieldPlatform], allowing platform-specific
   /// implementations to replace the default.
-  static set instance(DashShieldPlatform instance) {
+  static set instance(AppShieldPlatform instance) {
     PlatformInterface.verifyToken(instance, _token);
     _instance = instance;
   }

@@ -3,7 +3,7 @@ import UIKit
 import XCTest
 
 
-@testable import dash_shield
+@testable import app_shield
 
 // This demonstrates a simple unit test of the Swift portion of this plugin's implementation.
 //
@@ -12,7 +12,7 @@ import XCTest
 class RunnerTests: XCTestCase {
 
   func testGetPlatformVersion() {
-    let plugin = DashShieldPlugin()
+    let plugin = AppShieldPlugin()
 
     let call = FlutterMethodCall(methodName: "getPlatformVersion", arguments: [])
 

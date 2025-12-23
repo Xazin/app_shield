@@ -1,4 +1,4 @@
-package dev.dash_shield.dash_shield
+package dev.app_shield.app_shield
 
 import android.app.Activity
 import android.view.WindowManager
@@ -11,13 +11,13 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 
-class DashShieldPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
+class AppShieldPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
   private lateinit var channel: MethodChannel
   private var activity: Activity? = null
   private var globalScreenshotPrevention = false  // Tracks if screenshots are prevented globally
 
   override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-    channel = MethodChannel(flutterPluginBinding.binaryMessenger, "dash_shield")
+    channel = MethodChannel(flutterPluginBinding.binaryMessenger, "app_shield")
     channel.setMethodCallHandler(this)
   }
 

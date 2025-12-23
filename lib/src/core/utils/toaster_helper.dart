@@ -18,7 +18,7 @@ class AppToast {
   ///
   /// The toast has a red background color, white text color, and appears at
   /// the bottom of the screen for a long duration.
-  static showToastWithoutContext(String message) {
+  static void showToastWithoutContext(String message) {
     Fluttertoast.showToast(
       msg: message,
       gravity: ToastGravity.BOTTOM,

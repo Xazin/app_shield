@@ -1,5 +1,7 @@
-import 'package:dash_shield/dash_shield.dart';
-import 'package:dash_shield_example/step2.dart';
+// ignore_for_file: avoid_print
+
+import 'package:app_shield/app_shield.dart';
+import 'package:app_shield_example/step2.dart';
 import 'package:flutter/material.dart';
 
 import 'api_service.dart';
@@ -11,7 +13,7 @@ void main() async {
   runApp(const MyApp());
 }
 
-applySecurityControlsExample() async {
+Future<void> applySecurityControlsExample() async {
   final securityConfig = SecurityConfig(
     androidSigningSHA256Hashes: ['sha256hash1', 'sha256hash2'],
     androidPackageName: 'com.example.app',
@@ -30,7 +32,7 @@ applySecurityControlsExample() async {
           print('App integrity check failed: $issue'),
     },
   );
-  await DashShield.initSecurity(config: securityConfig);
+  await AppShield.initSecurity(config: securityConfig);
 }
 
 class MyApp extends StatefulWidget {
@@ -41,7 +43,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  getAllDio() async {
+  Future<void> getAllDio() async {
     //https://cat-fact.herokuapp.com/facts
     //https://fakestoreapi.com/products
     final respo = await ApiService.getInstance()
@@ -59,25 +61,26 @@ class _MyAppState extends State<MyApp> {
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
+            children: [
               ElevatedButton(
-                  onPressed: () {
-                    DashShield.allowScreenshotsGlobally();
-                  },
-                  child: const Text('Press to allow screenshot')),
+                onPressed: () => AppShield.allowScreenshotsGlobally(),
+                child: const Text('Press to allow screenshot'),
+              ),
               ElevatedButton(
-                  onPressed: () {
-                    DashShield.preventScreenshotsGlobally();
-                  },
-                  child: const Text('Press to disable screenshot')),
+                onPressed: () => AppShield.preventScreenshotsGlobally(),
+                child: const Text('Press to disable screenshot'),
+              ),
               ElevatedButton(
-                  onPressed: getAllDio, child: const Text('Test SSL Pinning')),
+                onPressed: getAllDio,
+                child: const Text('Test SSL Pinning'),
+              ),
               ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Step2()));
-                  },
-                  child: const Text('Test prevent screenshot for single page')),
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Step2()),
+                ),
+                child: const Text('Test prevent screenshot for single page'),
+              ),
             ],
           ),
         ),

@@ -1,8 +1,8 @@
-import 'dash_shield_exception.dart';
+import 'app_shield_exception.dart';
 
 /// An exception for handling SSL-related errors in the Dash Shield plugin.
 ///
-/// The [SSLException] extends [DashShieldException] and is used to capture
+/// The [SSLException] extends [AppShieldException] and is used to capture
 /// errors specifically related to SSL (Secure Sockets Layer) operations
 /// within Dash Shield.
 ///
@@ -10,7 +10,7 @@ import 'dash_shield_exception.dart';
 /// ```dart
 /// throw SSLException('SSL certificate validation failed.');
 /// ```
-class SSLException extends DashShieldException {
+class SSLException extends AppShieldException {
   /// Creates an [SSLException] with the given [message] and an optional
   /// [stackTrace].
   ///

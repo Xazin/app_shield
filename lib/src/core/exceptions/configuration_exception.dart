@@ -1,4 +1,4 @@
-import 'dash_shield_exception.dart';
+import 'app_shield_exception.dart';
 
 /// An exception for handling configuration errors in the Dash Shield plugin.
 ///
@@ -10,7 +10,7 @@ import 'dash_shield_exception.dart';
 /// ```dart
 /// throw ConfigurationException('Invalid configuration detected.');
 /// ```
-class ConfigurationException extends DashShieldException {
+class ConfigurationException extends AppShieldException {
   /// Creates a [ConfigurationException] with the given [message] and an
   /// optional [stackTrace].
   ///

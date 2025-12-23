@@ -1,18 +1,4 @@
-# Changelog
-All notable changes to this project will be documented in this file.
-
 ## 0.0.2
-### Changes
-* Update the packages version
-* 
-## 0.0.1+2
-### Changes
-* Fix Supported Platforms
-
-## 0.0.1+1
-### Changes
-* Add Example.
-* Fix Image and GIF in Readme
-
-## 0.0.1
-Initial Release for Dash Shield Plugin
+- Support Android 16 KB requirement
+- Require Flutter >=3.32.0
+- Remove unused dependencies (dart_console, dartdoc).
