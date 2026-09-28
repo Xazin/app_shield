@@ -1,3 +1,7 @@
+## 0.0.3+2
+- Added Swift Package Manager support for iOS (CocoaPods is still supported)
+- Enabled the bundled iOS privacy manifest (`PrivacyInfo.xcprivacy`)
+
 ## 0.0.3+1
 - Removed interact dependency
 

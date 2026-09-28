@@ -3,7 +3,7 @@ description: >
   App Shield: A robust Flutter plugin for app security, featuring screenshot prevention, SSL pinning, app integrity checks, and print management for safe production.
 homepage: https://github.com/Xazin/app_shield
 repository: https://github.com/Xazin/app_shield
-version: 0.0.3
+version: 0.0.3+2
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
