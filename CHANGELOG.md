@@ -1,3 +1,6 @@
+## 0.0.3+1
+- Removed interact dependency
+
 ## 0.0.3
 - Upgraded freerasp to 8.2.2
 

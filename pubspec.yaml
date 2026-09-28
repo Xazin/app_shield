@@ -18,7 +18,6 @@ dependencies:
   dio:
   freerasp: ^8.2.2
   fluttertoast:
-  interact: ^2.2.0
   screen_protector:
 
 dependency_overrides:
