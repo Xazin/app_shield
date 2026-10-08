@@ -1,3 +1,8 @@
+## 0.0.3+3
+- Bump Android compileSdk to 37 (freerasp, fluttertoast, and flutter_plugin_android_lifecycle require compileSdk 36+)
+- Bump freerasp to 8.2.4
+- Update README.md
+
 ## 0.0.3+2
 - Added Swift Package Manager support for iOS (CocoaPods is still supported)
 - Enabled the bundled iOS privacy manifest (`PrivacyInfo.xcprivacy`)

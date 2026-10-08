@@ -22,8 +22,8 @@ To use this plugin, make sure your project meets the following minimum SDK requi
 
 | SDK     | Version          | 
 |:--------|:-----------------| 
-| Dart    | >=2.18.0 <4.0.0  |  
-| Flutter |  >=3.3.0         | 
+| Dart    | >=3.0.0 <4.0.0   |  
+| Flutter |  >=3.32.0        | 
 
 
 
@@ -65,7 +65,7 @@ Add `app_shield` to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  app_shield: ^0.0.1+4
+  app_shield: ^0.0.3+3
 ```
 
 Then, run:
@@ -374,7 +374,6 @@ This plugin relies on several other plugins to provide robust security features:
 - **[fluttertoast](https://pub.dev/packages/fluttertoast)**: Used for showing Toasts without context.
 - **[dio](https://pub.dev/packages/dio)**: Used for Handling SSL Pinning for it's client.
 - **[dio_http_formatter](https://pub.dev/packages/dio_http_formatter)**: Used for beautifying Dio responses.
-- **[interact](https://pub.dev/packages/interact)**: Used for interacting with user in terminal.
 
 These dependencies are necessary to ensure the plugin provides optimal security functionality.
 
