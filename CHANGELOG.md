@@ -1,3 +1,6 @@
+## 0.0.4+1
+- Fixed Android Kotlin Gradle Plugin conflicting with Flutter's built-in Kotlin support, which could cause the plugin's Kotlin sources to silently fail to compile in some host app Gradle/AGP configurations.
+
 ## 0.0.3+3
 - Bump Android compileSdk to 37 (freerasp, fluttertoast, and flutter_plugin_android_lifecycle require compileSdk 36+)
 - Bump freerasp to 8.2.4
