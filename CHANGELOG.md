@@ -1,3 +1,6 @@
+## 0.0.4+2
+- Upgraded freerasp to 9.0.0
+
 ## 0.0.4+1
 - Fixed Android Kotlin Gradle Plugin conflicting with Flutter's built-in Kotlin support, which could cause the plugin's Kotlin sources to silently fail to compile in some host app Gradle/AGP configurations.
 

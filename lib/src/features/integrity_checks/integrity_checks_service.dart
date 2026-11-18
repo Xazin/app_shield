@@ -41,14 +41,14 @@ class IntegrityChecksService {
         androidConfig: config.enableOnAndroid
             ? AndroidConfig(
                 packageName: config.androidPackageName!,
-                signingCertHashes: base64Hashes,
-                supportedStores: config.supportedStores ?? [],
+                certificateHashes: base64Hashes,
+                supportedAlternativeStores: config.supportedStores ?? [],
               )
             : null,
         iosConfig: config.enableOniOS
             ? IOSConfig(
-                bundleIds: config.iosBundleIds!,
-                teamId: config.iosTeamId!,
+                appBundleIds: config.iosBundleIds!,
+                appTeamId: config.iosTeamId!,
               )
             : null,
         watcherMail: config.watcherEmail,
@@ -102,7 +102,7 @@ class IntegrityChecksService {
           SecOnControlsToApply.devMode, 'Developer mode'),
       onUnofficialStore: () => _handleCheck(config, enabledChecks,
           SecOnControlsToApply.unofficialStore, 'Unofficial store'),
-      onADBEnabled: () => _handleCheck(config, enabledChecks,
+      onAdbEnabled: () => _handleCheck(config, enabledChecks,
           SecOnControlsToApply.onADBEnabled, 'USB debugging enabled'),
     );
   }
